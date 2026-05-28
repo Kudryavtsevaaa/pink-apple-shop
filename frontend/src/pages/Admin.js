@@ -4,7 +4,7 @@ import { productsService } from '../services/products';
 import { ordersService } from '../services/orders';
 import './Admin.css';
 
-const API_BASE_URL = 'https://ready-cycles-worry.loca.lt/api';
+const API_BASE_URL = 'http://localhost:8000/api';
 
 const Admin = () => {
   const navigate = useNavigate();

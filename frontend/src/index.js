@@ -5,7 +5,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-console.log('🔥 VERSION 2 - API URL:', process.env.REACT_APP_API_URL);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

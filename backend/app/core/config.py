@@ -9,13 +9,7 @@ class Settings(BaseSettings):
     SECRET_KEY: str = "your-secret-key-change-in-prod"
     DEBUG: bool = True
     # Принимаем как строку или список
-    CORS_ORIGINS: Union[str, List[str]] = [
-    "http://localhost:3000",
-    "https://resonant-mandazi-1a54a2.netlify.app",
-    "https://ready-cycles-worry.loca.lt",
-    "https://*.netlify.app",  # Для всех поддоменов netlify
-    "https://*.loca.lt"       # Для всех поддоменов localtunnel
-]
+    CORS_ORIGINS: Union[str, List[str]] = ["http://localhost:3000", "*"]
     
     model_config = {
         "env_file": ".env",
