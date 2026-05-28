@@ -1,0 +1,33 @@
+.cart-page {
+    width: 100%;
+  }
+  
+  .cart-page h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 40px;
+  }
+  
+  .checkout-section {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .checkout-btn {
+    padding: 18px 50px;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 154, 158, 0.4);
+  }
+  
+  .checkout-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 154, 158, 0.6);
+  }

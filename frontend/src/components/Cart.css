@@ -1,0 +1,145 @@
+.cart {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart h2 {
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .cart-empty {
+    text-align: center;
+    padding: 50px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-empty h2 {
+    color: #ff6b81;
+    margin-bottom: 10px;
+  }
+  
+  .cart-items {
+    margin-bottom: 30px;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    gap: 20px;
+  }
+  
+  .cart-item:last-child {
+    border-bottom: none;
+  }
+  
+  .cart-item-image {
+    width: 80px;
+    height: 80px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .cart-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .cart-item-info {
+    flex: 1;
+  }
+  
+  .cart-item-info h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .cart-item-info p {
+    color: #ff6b81;
+    font-weight: 600;
+  }
+  
+  .cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .cart-item-quantity button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .cart-item-quantity button:hover {
+    background: #ff9a9e;
+    color: white;
+    border-color: #ff9a9e;
+  }
+  
+  .cart-item-quantity span {
+    font-weight: 600;
+    min-width: 30px;
+    text-align: center;
+  }
+  
+  .cart-item-total {
+    font-weight: bold;
+    color: #333;
+    min-width: 100px;
+    text-align: right;
+  }
+  
+  .remove-btn {
+    background: #ff4757;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .remove-btn:hover {
+    background: #ff6b81;
+  }
+  
+  .cart-summary {
+    border-top: 2px solid #eee;
+    padding-top: 20px;
+  }
+  
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  @media (max-width: 768px) {
+    .cart-item {
+      flex-wrap: wrap;
+    }
+    
+    .cart-item-total {
+      width: 100%;
+      text-align: left;
+      margin-top: 10px;
+    }
+  }
