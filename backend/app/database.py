@@ -1,22 +1,32 @@
-import json
-from pathlib import Path
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+import os
+from dotenv import load_dotenv
 
-DATA_FILE = Path(__file__).parent.parent / "data.json"
+load_dotenv()
 
-with open(DATA_FILE, "r", encoding="utf-8") as f:
-    _data = json.load(f)
+# Получаем URL с fallback по умолчанию
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres@localhost:5432/apple")
 
-categories = _data.get("categories", [])
-products = _data.get("products", [])
+# Проверка на пустой URL
+if not SQLALCHEMY_DATABASE_URL:
+    raise ValueError("DATABASE_URL не задан! Проверьте файл .env")
 
-def get_categories():
-    return categories
+print(f"🔗 Подключение к БД: {SQLALCHEMY_DATABASE_URL}")
 
-def get_products():
-    return products
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL,
+    pool_pre_ping=True,  # Проверка соединения перед использованием
+    pool_recycle=3600    # Переподключение каждые 1 час
+)
 
-def get_product_by_id(product_id: int):
-    return next((p for p in products if p["id"] == product_id), None)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
 
-def get_products_by_category(category_id: int):
-    return [p for p in products if p["category_id"] == category_id]
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
