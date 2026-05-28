@@ -4,7 +4,7 @@ import { productsService } from '../services/products';
 import { ordersService } from '../services/orders';
 import './Admin.css';
 
-const API_BASE_URL = 'http://localhost:8000/api';
+const API_BASE_URL = 'https://slick-bobcats-drop.loca.lt/api';
 
 const Admin = () => {
   const navigate = useNavigate();
