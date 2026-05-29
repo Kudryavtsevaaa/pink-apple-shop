@@ -9,6 +9,7 @@ import Admin from './pages/Admin';
 import Login from './pages/Login';
 import PwaManager from './components/PwaManager';
 import OfflineBanner from './components/OfflineBanner';
+import IosInstallHint from './components/IosInstallHint';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <div className="App">
       <PwaManager />
       <OfflineBanner />
+      <IosInstallHint />
       <Navbar />
       <main className="main-content">
         <Routes>

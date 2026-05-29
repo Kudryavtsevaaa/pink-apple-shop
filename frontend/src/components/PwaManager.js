@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { registerServiceWorker } from '../pwa/registerServiceWorker';
+import { canUseInstallPrompt } from '../pwa/device';
 import './PwaManager.css';
 
 const PwaManager = () => {
@@ -30,6 +31,10 @@ const PwaManager = () => {
   }, [offlineReady]);
 
   useEffect(() => {
+    if (!canUseInstallPrompt()) {
+      return undefined;
+    }
+
     const handleBeforeInstall = (event) => {
       event.preventDefault();
       setInstallPrompt(event);
