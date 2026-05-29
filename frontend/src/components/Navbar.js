@@ -10,7 +10,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          🍎 Розовое яблоко
+          Розовое яблоко
         </Link>
         
         <div className="navbar-menu">

@@ -7,11 +7,15 @@ import Catalog from './pages/Catalog';
 import CartPage from './pages/CartPage';
 import Admin from './pages/Admin';
 import Login from './pages/Login';
+import PwaManager from './components/PwaManager';
+import OfflineBanner from './components/OfflineBanner';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <PwaManager />
+      <OfflineBanner />
       <Navbar />
       <main className="main-content">
         <Routes>

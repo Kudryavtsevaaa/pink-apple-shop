@@ -1,8 +1,9 @@
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List, Optional
 from app.database import get_db
-from app.models.product import Product, Category
+from app.models.product import Product
+from app.models.order import OrderItem
 from app.schemas.product import ProductCreate, ProductUpdate, ProductResponse
 
 router = APIRouter()
@@ -55,7 +56,6 @@ async def delete_product(product_id: int, db: Session = Depends(get_db)):
     if not db_product:
         raise HTTPException(status_code=404, detail="Product not found")
     
-    from app.models.order import OrderItem
     db.query(OrderItem).filter(OrderItem.product_id == product_id).delete()
     
     db.delete(db_product)

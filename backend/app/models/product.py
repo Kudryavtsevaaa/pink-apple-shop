@@ -1,5 +1,4 @@
-# backend/app/models/product.py
-from sqlalchemy import Column, Integer, String, Text, Numeric, ForeignKey, DateTime, TIMESTAMP, func
+from sqlalchemy import Column, Integer, String, Text, Numeric, ForeignKey, TIMESTAMP, func
 from sqlalchemy.orm import relationship
 from app.database import Base
 
@@ -25,4 +24,4 @@ class Product(Base):
     created_at = Column(TIMESTAMP, server_default=func.now())
     
     category = relationship("Category", back_populates="products")
-    order_items = relationship("OrderItem", back_populates="product")  # ← Добавили
+    order_items = relationship("OrderItem", back_populates="product")

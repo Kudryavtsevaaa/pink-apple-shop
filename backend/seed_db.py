@@ -14,7 +14,7 @@ try:
     existing_categories = db.query(Category).count()
     
     if existing_categories == 0:
-        print("🌱 Добавляем тестовые данные...")
+        print("Добавляем тестовые данные...")
         
         # Создаем категории
         categories = [
@@ -50,9 +50,9 @@ try:
             db.add(prod)
         db.commit()
         
-        print("✅ Тестовые данные успешно добавлены!")
+        print("Тестовые данные добавлены.")
     else:
-        print("✓ БД уже содержит данные, пропускаем инициализацию")
+        print("БД уже содержит данные, инициализация пропущена.")
         
 finally:
     db.close()

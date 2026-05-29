@@ -1,8 +1,6 @@
-# backend/app/core/config.py
 from pydantic_settings import BaseSettings
 from typing import List, Union
 from functools import lru_cache
-import os
 
 class Settings(BaseSettings):
     DATABASE_URL: str = "postgresql://postgres@localhost:5432/apple"

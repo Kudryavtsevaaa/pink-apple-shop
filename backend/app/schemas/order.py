@@ -1,4 +1,3 @@
-# backend/app/schemas/order.py
 from pydantic import BaseModel
 from typing import List, Optional
 from decimal import Decimal
@@ -22,7 +21,7 @@ class OrderItemCreate(OrderItemBase):
 
 class OrderItemResponse(OrderItemBase):
     id: int
-    product: Optional[ProductInfo] = None  # ← Добавили информацию о товаре
+    product: Optional[ProductInfo] = None
     
     class Config:
         from_attributes = True

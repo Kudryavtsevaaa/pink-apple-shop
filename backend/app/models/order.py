@@ -1,5 +1,4 @@
-# backend/app/models/order.py
-from sqlalchemy import Column, Integer, String, Text, Numeric, ForeignKey, DateTime, TIMESTAMP, func
+from sqlalchemy import Column, Integer, String, Text, Numeric, ForeignKey, TIMESTAMP, func
 from sqlalchemy.orm import relationship
 from app.database import Base
 
@@ -27,4 +26,4 @@ class OrderItem(Base):
     price = Column(Numeric(10, 2), nullable=False)
     
     order = relationship("Order", back_populates="items")
-    product = relationship("Product", back_populates="order_items")  # ← Добавили связь
+    product = relationship("Product", back_populates="order_items")

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
+import { formatPrice } from '../utils/format';
 import './Cart.css';
 
 const Cart = () => {
@@ -30,7 +31,7 @@ const Cart = () => {
             
             <div className="cart-item-info">
               <h3>{item.name}</h3>
-              <p>{Number(item.price).toLocaleString('ru-RU')} руб.</p>
+              <p>{formatPrice(item.price)}</p>
             </div>
             
             <div className="cart-item-quantity">
@@ -48,14 +49,14 @@ const Cart = () => {
             </div>
             
             <div className="cart-item-total">
-              {Number(item.price * item.quantity).toLocaleString('ru-RU')} руб.
+              {formatPrice(item.price * item.quantity)}
             </div>
             
             <button 
               className="remove-btn"
               onClick={() => removeFromCart(item.id)}
             >
-              ✕
+              ×
             </button>
           </div>
         ))}
@@ -64,7 +65,7 @@ const Cart = () => {
       <div className="cart-summary">
         <div className="cart-total">
           <span>Итого:</span>
-          <span>{getCartTotal().toLocaleString('ru-RU')} руб.</span>
+          <span>{formatPrice(getCartTotal())}</span>
         </div>
       </div>
     </div>

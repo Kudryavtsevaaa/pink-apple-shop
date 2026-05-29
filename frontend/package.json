@@ -12,15 +12,18 @@
     "react-dom": "^19.2.4",
     "react-router-dom": "^7.13.2",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4",
-    "workbox-webpack-plugin": "^7.4.1",
     "workbox-window": "^7.4.1"
   },
+  "devDependencies": {
+    "@craco/craco": "^7.1.0",
+    "workbox-webpack-plugin": "^7.4.1"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "serve:pwa": "npm run build && npx --yes serve -s build -l 3000"
   },
   "eslintConfig": {
     "extends": [

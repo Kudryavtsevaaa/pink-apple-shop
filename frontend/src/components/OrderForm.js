@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { ordersService } from '../services/orders';
+import { formatPrice } from '../utils/format';
+import { getErrorMessage } from '../utils/errors';
 import './OrderForm.css';
 
-const OrderForm = ({ totalAmount, onSuccess, onCancel }) => {
-  const { cartItems, clearCart } = useCart();
+const OrderForm = ({ onSuccess, onCancel }) => {
+  const { cartItems, clearCart, getCartTotal } = useCart();
   const [formData, setFormData] = useState({
     customer_name: '',
     customer_phone: '',
@@ -40,8 +42,7 @@ const OrderForm = ({ totalAmount, onSuccess, onCancel }) => {
       clearCart();
       onSuccess();
     } catch (err) {
-      setError('Ошибка при оформлении заказа. Попробуйте позже.');
-      console.error('Order error:', err);
+      setError(getErrorMessage(err, 'Ошибка при оформлении заказа. Попробуйте позже.'));
     } finally {
       setLoading(false);
     }
@@ -56,12 +57,12 @@ const OrderForm = ({ totalAmount, onSuccess, onCancel }) => {
         <ul>
           {cartItems.map(item => (
             <li key={item.id}>
-              {item.name} x {item.quantity} = {Number(item.price * item.quantity).toLocaleString('ru-RU')} руб.
+              {item.name} x {item.quantity} = {formatPrice(item.price * item.quantity)}
             </li>
           ))}
         </ul>
         <div className="order-total">
-          <strong>Итого: {totalAmount.toLocaleString('ru-RU')} руб.</strong>
+          <strong>Итого: {formatPrice(getCartTotal())}</strong>
         </div>
       </div>
 

@@ -18,8 +18,9 @@ const Catalog = () => {
         const prods = await productsService.getAll();
         setProducts(prods);
         setLoading(false);
-      } catch (error) {
-        console.error('Error fetching data:', error);
+      } catch {
+        setProducts([]);
+        setCategories([]);
         setLoading(false);
       }
     };
@@ -43,7 +44,6 @@ const Catalog = () => {
     <div className="catalog">
       <h1>Каталог товаров</h1>
       
-      {/* Categories Filter */}
       <div className="categories-filter">
         <button
           className={`filter-btn ${!selectedCategory ? 'active' : ''}`}
@@ -62,7 +62,6 @@ const Catalog = () => {
         ))}
       </div>
 
-      {/* Products Grid */}
       <div className="products-grid">
         {filteredProducts.length > 0 ? (
           filteredProducts.map(product => (

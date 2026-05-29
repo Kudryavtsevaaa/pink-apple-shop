@@ -12,8 +12,8 @@ const Home = () => {
       try {
         const products = await productsService.getAll();
         setFeaturedProducts(products.slice(0, 6));
-      } catch (error) {
-        console.error('Error fetching data:', error);
+      } catch {
+        setFeaturedProducts([]);
       }
     };
 
@@ -22,10 +22,9 @@ const Home = () => {
 
   return (
     <div className="home">
-      {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
-          <h1>Добро пожаловать в мир красоты с Золотым яблоком!</h1>
+          <h1>Добро пожаловать в мир красоты с Розовым яблоком</h1>
           <p>
             Наша цель — помочь вам создать идеальный уход за собой с продукцией, 
             которая соответствует самым высоким стандартам. На главной странице 
@@ -38,7 +37,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Categories Section */}
       <section className="categories-section">
         <h2>Категории товаров</h2>
         <div className="categories-grid">
@@ -68,7 +66,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Products */}
       <section className="featured-products">
         <h2>Популярные товары</h2>
         <div className="products-grid">
